@@ -1,19 +1,5 @@
 {% extends 'all-pages/base.html' %}
 {% block content %}
 {% load static %}
-<div>
-    <h1>{{title}}</h1>
-</div>
-<div class="container">
-    <div class="col-md-12">
-        <div class="row">
-            {% for post in posts %}
-            <img src="{{post.photo.url}}" alt="{{post.title}}" />
-            <h3>{{post.user.username}}</h3>
-            <h4>Description:{{post.description}}</h4>
-            <p>Posted: {{post.date}}</p>
-            {% endfor %}
-        </div>
-    </div>
-</div>
+
 {% endblock %}
