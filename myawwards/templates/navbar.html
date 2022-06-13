@@ -1,0 +1,34 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="nbar">
+    <div class="container">
+        <a style="color: black;" class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> Awwards</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    
+                </li>
+            </ul>
+
+            <ul class="navbar-nav navbar-right">
+                {% if user.is_authenticated%}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">{{ user.username|title }} <img class="rounded-circle nav-img"
+                                                                            src="{{ user.profile.profile_picture.url }}"
+                                                                            alt="">
+                    </a>
+                </li>
+                {% else %}
+                <a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a>
+                {% endif %}
+                <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">
+                    Submit your site
+                </button>
+            </ul>
+        </div>
+    </div>
+</nav>
