@@ -31,9 +31,18 @@ class Post(models.Model):
     url = models.URLField(max_length=300, blank=True)
     date = models.DateField(auto_now_add=True,blank=True)
     profile=models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    
     def save_post(self):
         self.save()
         
+    def delete_post(self):
+        self.delete()
+    
+    @classmethod
+    def all_posts(cls):
+        return cls.objects.all()
+    
+    
     @classmethod
     def get_profile_image(cls, profile):
         posts = Post.objects.filter(user__pk=profile)
@@ -41,3 +50,34 @@ class Post(models.Model):
         
     def __str__(self):
         return f'{self.title}'
+
+
+class Ratings(models.Model):
+    INPUT = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7'),
+        (8, '8'),
+        (9, '9'),
+        (10, '10'),
+    )
+    design=models.IntegerField(choices=INPUT, default=0, blank=True)
+    usability=models.IntegerField(choices=INPUT, blank=True)
+    content=models.IntegerField(choices=INPUT, blank=True)
+    score=models.IntegerField(default=0, blank=True)
+    post_rated = models.ForeignKey(Post,on_delete=models.CASCADE, related_name='ratings',null=True)
+
+    def save_rating(self):
+        self.save()
+
+    @classmethod
+    def get_ratings(cls, id):
+        ratings = Ratings.objects.filter(post_id=id).all()
+        return ratings
+    
+    def __str__(self):
+        return f'{self.post_rated} Rating'
