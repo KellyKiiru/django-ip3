@@ -13,6 +13,7 @@ class Profile(models.Model):
     
     def save_profile(self):
         self.save()
+        
     @classmethod
     def get_all_profiles(cls):
         profile = Profile.objects.all()
@@ -29,9 +30,14 @@ class Post(models.Model):
     technologies = models.CharField(max_length=300, blank=True)
     url = models.URLField(max_length=300, blank=True)
     date = models.DateField(auto_now_add=True,blank=True)
-    
+    profile=models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     def save_post(self):
         self.save()
+        
+    @classmethod
+    def get_profile_image(cls, profile):
+        posts = Post.objects.filter(user_profile__pk=profile)
+        return posts
         
     def __str__(self):
         return f'{self.title}'
