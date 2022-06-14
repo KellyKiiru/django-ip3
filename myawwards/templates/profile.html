@@ -1,1 +1,16 @@
-<h1>Profile page</h1>
+{%extends 'all-pages/base.html'%}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container" style="margin-top:7%;">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-4">
+            <img height="300px" class="rounded-circle account-img d-block mx-auto" src="{{ user.profile.profile_picture.url }}">
+            <h5 class="text-center mt-3">{{user.username}}</h5>
+            <p class="text-center"> {{user.email}}</p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock %}
