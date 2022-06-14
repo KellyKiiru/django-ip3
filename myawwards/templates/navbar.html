@@ -14,7 +14,22 @@
 
             <ul   class="navbar-nav navbar-right">
                 {% if user.is_authenticated%}
-                <p style="color: black;" >{{user.username}}</p>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">{{ user.username|title }} <img class="rounded-circle nav-img"
+                                                                            src="#"
+                                                                            alt="">
+                    </a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item text-center" href="{% url 'profile' user.username %}">Profile</a>
+                        <hr>
+                        <hr>
+                        <a href="/accounts/logout/" class="text-secondary text-center dropdown-item">Log Out</a>
+
+
+                    </div>
+                </li>
                 {% else %}
                 <a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a>
                 {% endif %}

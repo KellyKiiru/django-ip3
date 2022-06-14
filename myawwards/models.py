@@ -36,7 +36,7 @@ class Post(models.Model):
         
     @classmethod
     def get_profile_image(cls, profile):
-        posts = Post.objects.filter(user_profile__pk=profile)
+        posts = Post.objects.filter(user__pk=profile)
         return posts
         
     def __str__(self):
