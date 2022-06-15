@@ -70,6 +70,9 @@ class Ratings(models.Model):
     content=models.IntegerField(choices=INPUT, blank=True)
     score=models.IntegerField(default=0, blank=True)
     post_rated = models.ForeignKey(Post,on_delete=models.CASCADE, related_name='ratings',null=True)
+    design_average = models.FloatField(default=0, blank=True)
+    usability_average = models.FloatField(default=0, blank=True)
+    content_average = models.FloatField(default=0, blank=True)
 
     def save_rating(self):
         self.save()
