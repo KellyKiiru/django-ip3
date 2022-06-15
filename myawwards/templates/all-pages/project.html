@@ -48,9 +48,9 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <h3 class="D-block mx-auto">Ratings Scores</h3>
-                    {% for rating in post.ratings.all %}
-                    {% if forloop.counter is post.ratings.all.count %}
+                    <h3 class="D-block mx-auto">Average Scores</h3>
+                    {% for rating in post_rated.ratings.all %}
+                    {% if forloop.counter is post_rated.ratings.all.count %}
                     <a class="btn btn-info btn-sm" ><h5>{{ rating.score }}</h5>
                         <span class="sc">Average Score</span>
                     </a>
@@ -85,4 +85,3 @@
     </div>
 </div>
 {% endblock %}
-{{ post_rated.photo.url}}
