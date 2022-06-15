@@ -1,6 +1,18 @@
 {% extends 'all-pages/base.html' %}
+
+
+
 {% block content %}
-{% load static %}
+{% block styles %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+{% endblock %}
 <div class="container-fluid" style="margin-top:5%;">
     <div class="container">
         <h2 class="mt-4">Websites available</h2>
@@ -27,11 +39,16 @@
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="view overlay">
-                            <img class="card-img-top" src="{{ post.photo.url }}" alt="{{photo.title}}">
-                            <div class="mask rgba-white-slight"></div>
+                            <a href="{% url 'project' post.title %}"><img class="card-img-top" src="{{ post.photo.url }}" alt="{{photo.title}}"></a>
+
+                                <div class="mask rgba-white-slight" style="color: black;"> hey</div>
+                                                            <div class="mask rgba-white-slight"></div>
                             </a>
                         </div>
-                        <div class="card-body"> <a class="btn btn-sm btn-outline-info" href="{{ post.url }}"> View</a>
+                        <div class="card-body">
+
+                            <h4 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a>
+                                <a class="btn btn-sm btn-outline-info" href="{{ post.url }}"> View</a>
                             </h4>
                             <hr>
                             <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}"
