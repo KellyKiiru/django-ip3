@@ -49,9 +49,9 @@ def project(request, post_rated):
     if request.method == 'POST':
         form = RatingsForm(request.POST)
         if form.is_valid():
-            rate = form.save(commit=False)
+            rate = form.save()
             rate.user = request.user
-            rate.post = post_rated
+            rate.post_rated = post_rated
             rate.save()
             post_ratings = Ratings.objects.filter(post_rated=post_rated)
 
@@ -65,7 +65,7 @@ def project(request, post_rated):
             content_average = sum(content_ratings) / len(content_ratings)
 
             score = (design_average + usability_average + content_average) / 3
-            print(score)
+            
             rate.design_average = round(design_average, 2)
             rate.usability_average = round(usability_average, 2)
             rate.content_average = round(content_average, 2)
