@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container" style="margin-top:8%;">
-    <h4 class="mb-4 mt-4"><span><strong>{{ post_rated.title }}</strong></span> by {{ post_rated.user.username }} from {{ post_rated.user.profile.loaction }} <span
+    <h4 class="mb-4 mt-4"><span><strong>[{{ post_rated.title }}]</strong></span> by {{ post_rated.user.username }} from {{ post_rated.user.profile.location }} <span
             id="heart"> <i class="fas fa-heart"></i></span></h4>
 
     <div class="card" >
