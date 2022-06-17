@@ -14,7 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
-    
+
 {% endblock %}
 
 <div class="container-fluid" style="margin-top:5%; font-size: large;">
@@ -59,8 +59,8 @@
                             <hr>
                             <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}"
                                     style="border-radius: 50%; height: 50px;font-size: medium" alt="">
-                                <span style="font-size: medium;">By {{post.user.username|title}}</span> <span
-                                    style="float:right;font-size: medium">{{post.date|date}}</span>
+                                <span style="font-size: medium;">By {{post.user.username|title}}</span>
+                                <span style="float:right;font-size: medium">{{post.date|date}}</span>
 
 
                             </p>
