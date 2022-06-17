@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from myawwards import views as myawwards_views
 
 urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path('',include('myawwards.urls')),
     path('accounts/', include('registration.backends.simple.urls')),
+    #path('', myawwards_views.postsapi, name='postsapi' ),
+    #path('',myawwards_views.profilesapi, name='profilesapi'),
 ]

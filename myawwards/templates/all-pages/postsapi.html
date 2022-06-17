@@ -1,0 +1,182 @@
+{% extends "all-pages/base.html"%}
+
+{% block content %}
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designs</title>
+</head>
+
+<body>
+  <div class="aaa d-flex justify-content">
+    <h1>vAWWARDS</h1>
+    
+    
+    </div>
+
+  <div class="two container-fluid">
+    <section class="cards">
+
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://www.animaker.com/blog/wp-content/uploads/2018/09/Wistia.gif"
+              class="d-block w-100" alt="..." height="700px" width="100px">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Fabolous Video website</h5>
+              <!-- <p>Show landing page Design.Something great for your customers</p> -->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://blog.trymyui.com/wp-content/uploads/2019/07/berniesanderes.com-landing-page-gif-trymyui-blog-ux-wars.gif"
+              class="d-block w-100" alt="..." height="700px" width="100px">
+            <div class="carousel-caption d-none d-md-block ">
+              <!-- <h5 >Second slide label</h5> -->
+              <p>Great Bernie's Design</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+           
+              src=" https://thumbs.gfycat.com/BlondCriminalBee-max-1mb.gif"
+              class="d-block w-100" alt="..." height="800px" width="100px">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Runtime</h5>
+              <p>This great design by Alto from Canada goes with you along</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+  
+  
+    </section>
+  </div>
+
+  <hr>
+
+
+
+  <div class="container-fluid">
+    <h3 class="ft"> Featured projects</h3>
+    <div class="row">
+      
+      {% for project in project %}
+      <div class="col-md-6 mb-3">
+
+        <div class="card bg-dark text-white">
+          <img src=" https://mdbcdn.b-cdn.net/img/new/slides/017.webp" class="card-img" alt="Stony Beach"/>
+          <div class="card-img-overlay">
+            <!-- {{project.image.url}} -->
+            
+            <div class="d-flex">
+              <img class="iii" src="{{project.user.profile.image.url }}" alt="">
+              <a href="{{projet.user}}">
+                <strong class="text-gray-dark p-2"> {{project.user}}</strong>
+              </a>
+            </div>
+            <br>
+            <p class="card-text">
+              {{project.title}}
+            </p>
+            <small><p class="card-text">Posted {{project.created|timesince}} ago</p></small>
+           
+            <a href="{% url 'project' project.id %}"><button id="aa" type="button" class=" btn btn-primary mt-2" >View Project</button></a>
+
+            
+          </div>
+          
+        </div>
+
+      </div>
+
+
+      {% endfor %}
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <style>
+    .iii {
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+    }
+
+    .aaa{
+      display: flex;
+      justify-content:space-around;
+      font-size: 15px;
+  color: blue;
+  font-family: "Fredoka One", Sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: 0px;
+  text-shadow: 4px 10px 2px rgb(53 66 109 / 15%);
+      
+      
+
+    }
+
+.two{
+  background-image: url();
+}
+
+.ft{
+  font-size: 15px;
+  color: blue;
+  font-family: "Fredoka One", Sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: 0px;
+  text-shadow: 4px 10px 2px rgb(53 66 109 / 15%);
+}
+   
+
+    
+  </style>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+{% endblock content %}

@@ -147,3 +147,10 @@ class Postlist(APIView):
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+def postsapi(request):
+  posts = Post.objects.all()
+  return render (request, 'all-pages/postsapi.html', {'posts': posts})
+
+def profilesapi(request):
+    profiles = Profile.objects.all()
+    return render (request, 'all-pages/profilessapi.html', {'profiles': profiles})
