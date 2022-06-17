@@ -81,3 +81,17 @@ def project(request, post_rated):
 
     }
     return render(request, 'all-pages/project.html', context)
+
+@login_required
+def newpost(request):
+    current_user=request.user
+    if request.method == 'POST':
+        form=PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post=form.save(commit=False)
+            post.user=current_user
+            post.save()
+        return redirect('index')
+    else:
+        form=PostForm()
+    return render(request, 'all-pages/new_post.html', {"form": form})
