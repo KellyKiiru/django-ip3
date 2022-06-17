@@ -95,3 +95,17 @@ def newpost(request):
     else:
         form=PostForm()
     return render(request, 'all-pages/new_post.html', {"form": form})
+
+def search(request,):
+    if request.method == "GET":
+        title = request.GET.get('title',)
+        search_results = Post.objects.filter(title__icontains=title).all()
+        message = f'name'
+        context =  {'title': title, 
+        'search_results': search_results,
+        'message': message}
+        return render (request,'all-pages/search_results.html', context )
+    else:
+        message = "Please input title of project you want to post"
+    
+    return render (request, 'all-pages/search_results.html',context)
