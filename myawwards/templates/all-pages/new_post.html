@@ -1,13 +1,31 @@
 {% extends 'all-pages/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<h1>
+<h2>
     New post
-</h1>
+</h2>
+<div class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-md-4" style="height:100%; background-color: rgba(60,177,212,255);color: white;"><form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input style="color: black;" class="btn btn-info btn-sm" type="submit" value="Post">
+        </form> </div>
+        <div class="card-body">
+            <h4>Hi there  {{user.username}} <p> &#x1F61C;</p></h4>
+            <p>Fill out this form to add a post you want to be rated</p>
+            <hr>
+            <div class="row">
 
-<form  method="post" enctype="multipart/form-data">
-{% csrf_token %}
-{{form|crispy}}
-<input class="btn btn-primary" type="submit" value="Post">
-</form>
+                <div class="col-md-8">
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
 {% endblock %}
