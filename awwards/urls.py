@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from myawwards import views as myawwards_views
+#from myawwards import views as myawwards_views
 
 urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),

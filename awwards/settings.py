@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'clearcache',
+    #'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,6 @@ INSTALLED_APPS = [
     'myawwards',
     'bootstrap3',
     'crispy_forms',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [

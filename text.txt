@@ -1,0 +1,14 @@
+<ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle " id="navbarDropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">APIS
+                    </a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+      
+      
+                      <a class="dropdown-item text-center" href="api/posts/"  style="font-size: medium;"> Projects</a>
+                      <hr>
+                      <a href="api/profile/" class="text-secondary text-center dropdown-item"  style="font-size: medium;">Profiles</a>
+                    </div>
+                  </li>
+ </ul>

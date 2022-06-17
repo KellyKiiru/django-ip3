@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 #from django.contrib.auth.models import User
 from .forms import *
 from django.http import HttpResponseRedirect
-from rest_framework.views import APIView
-from rest_framework.response import Response
+#from rest_framework.views import APIView
+#from rest_framework.response import Response
 from .serializer import *
 
 
@@ -128,29 +128,29 @@ def search(request,):
     
     return render (request, 'all-pages/search_results.html',context)
 
-class Profilelist(APIView):
-    def get(self, request, format=None):
-        all_profiles = Profile.objects.all()
-        serializers = ProfileSerializer(all_profiles, many=True)
-        return Response(serializers.data)
+#class Profilelist(APIView):
+#    def get(self, request, format=None):
+#        all_profiles = Profile.objects.all()
+#        serializers = ProfileSerializer(all_profiles, many=True)
+#        return Response(serializers.data)
 
 
-class Postlist(APIView):
-    def get(self, request, format=None):
-        all_post = Post.objects.all()
-        serializers = PostSerializer(all_post, many=True)
-        return Response(serializers.data)
+#class Postlist(APIView):
+#    def get(self, request, format=None):
+#        all_post = Post.objects.all()
+#        serializers = PostSerializer(all_post, many=True)
+#        return Response(serializers.data)
 
-    def post(self, request, format=None):
-        serializers = PostSerializer(data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
-def postsapi(request):
-  posts = Post.objects.all()
-  return render (request, 'all-pages/postsapi.html', {'posts': posts})
+#    def post(self, request, format=None):
+#        serializers = PostSerializer(data=request.data)
+#        if serializers.is_valid():
+#            serializers.save()
+#            return Response(serializers.data, status=status.HTTP_201_CREATED)
+#        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#def postsapi(request):
+#  posts = Post.objects.all()
+#  return render (request, 'all-pages/postsapi.html', {'posts': posts})
 
-def profilesapi(request):
-    profiles = Profile.objects.all()
-    return render (request, 'all-pages/profilessapi.html', {'profiles': profiles})
+#def profilesapi(request):
+#    profiles = Profile.objects.all()
+#    return render (request, 'all-pages/profilessapi.html', {'profiles': profiles})
