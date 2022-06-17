@@ -6,9 +6,12 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 mt-4">
-            <img height="300px" class="rounded-circle account-img d-block mx-auto" src="{{ user.profile.profile_picture.url }}"><hr>
-            <h5 class="text-center mt-3">Username: {{user.username}}</h5><hr>
-            <p class="text-center" >Bio: {{user.profile.bio}}</p>
+            <img height="300px" class="rounded-circle account-img d-block mx-auto"
+                src="{{ user.profile.profile_picture.url }}">
+            <hr>
+            <h5 class="text-center mt-3">Username: {{user.username}}</h5>
+            <hr>
+            <p class="text-center">Bio: {{user.profile.bio}}</p>
             <p class="text-center">Email: {{user.email}}</p>
         </div>
         <div class="col-md-3"></div>
