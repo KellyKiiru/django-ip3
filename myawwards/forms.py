@@ -15,3 +15,8 @@ class RatingsForm(forms.ModelForm):
     class Meta:
         model = Ratings
         fields = ['design', 'usability', 'content']
+        
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
