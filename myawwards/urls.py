@@ -15,6 +15,7 @@ urlpatterns = [
     path('new_post/',views.newpost, name='new_post'),
     path('search/',views.search,name='search'),
     path('api/profile/', views.Profilelist.as_view()),
+    path('api/posts/', views.Postlist.as_view()),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -9,3 +9,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
       model=Profile
       fields=('profile_picture','bio','email')
+
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+      model=Post
+      fields=('id','title', 'photo', 'description', 'url','profile','user')
