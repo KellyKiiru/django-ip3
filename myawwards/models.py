@@ -8,7 +8,7 @@ class Profile(models.Model):
     profile_picture = models.ImageField(blank=True, upload_to='profile/')
     bio = models.TextField(default="My Bio", blank=True)
     name = models.CharField(max_length=60, blank=False)
-    loaction = models.CharField(max_length=100, blank=True)
+    location = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=100, blank=True)
     
     def save_profile(self):
