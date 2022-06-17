@@ -10,6 +10,7 @@ urlpatterns = [
     #path('upload/', views.add_post, name='add'),
     path('project/<post_rated>', views.project, name='project'),
     path('new_post/',views.newpost, name='new_post'),
+    path('search/',views.search,name='search'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
