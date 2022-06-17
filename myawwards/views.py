@@ -10,7 +10,6 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 
 
-@login_required
 def index(request):
     title =  "Myawwards"
     posts = Post.objects.all()
@@ -23,19 +22,35 @@ def index(request):
     return render(request,'all-pages/index.html',context)
 
 @login_required
-def profile(request, username):
-    user_profile = get_object_or_404(User, username=username)
-    title = f'@{user_profile.username}'
+def profile(request):
+    #user_profile = get_object_or_404(User, username=username)
+    #title = f'@{user_profile.username}'
     posts = Post.objects.all()
     context = {
         "profile": profile,
-        "title":title,
+        #"title":title,
         "posts":posts,
     }
     if request.user == profile:
         return redirect('profile', context, username=request.user.username)
 
-    return render(request, 'profile.html', context)
+    return render(request, 'all-pages/profile.html', context)
+
+def edit_profile(request,user_id):
+    user=get_object_or_404(User,id=user_id)
+    #user = User.objects.first()
+    form=EditProfileForm()
+    if request.method == 'POST':
+        form=EditProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            photo=form.save(commit=False)
+            photo.user=user
+            form.save()
+            return redirect('profile')
+        else:
+            form=EditProfileForm()
+    return render(request,'all-pages/edit_profile.html',{"form":form})
+
 
 @login_required
 def project(request, post_rated):
@@ -109,3 +124,4 @@ def search(request,):
         message = "Please input title of project you want to post"
     
     return render (request, 'all-pages/search_results.html',context)
+
