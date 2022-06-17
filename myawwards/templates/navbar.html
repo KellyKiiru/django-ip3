@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="nbar">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar" id="nbar">
     <div class="container">
-        <a style="color: black;" class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> Awwards</strong></a>
+        <a style="color: rgb(255, 255, 255);" class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> Awwards</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,20 +25,21 @@
                        aria-haspopup="true"
                        aria-expanded="false">{{ user.username|title }} <img style="height:40px;" class="rounded-circle nav-img"
                                                                             src="{{user.profile.profile_picture.url}}"
-                                                                            alt="">
+                                                                            alt="{{user.username}}">
                     </a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item text-center" href="{% url 'profile' user.username %}">Profile</a><hr>
-                        <a href="/accounts/logout/" class="text-secondary text-center dropdown-item">Log Out</a><hr>
+                        <a class="dropdown-item text-center" href="{% url 'profile' %}" style="font-size: medium;">Profile</a>
+                        <a class="dropdown-item text-center" href="{% url 'edit_profile' user.id %}" style="font-size: medium;">Edit profile</a>
+                        <a href="/accounts/logout/" class="text-secondary text-center dropdown-item" style="font-size: medium;">Log Out</a>
 
 
                     </div>
                 </li>
                 {% else %}
-                <a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a>
+                <a href="{% url 'login'%}" class="login btn btn-sm btn-info" style="font-size: medium;"> REGISTER/LOGIN </a>
                 {% endif %}
                 <a href="{% url 'new_post' %}">
-                    <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">
+                    <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl" style="font-size: medium;">
                         Submit your site
                     </button>
                 </a>
